@@ -81,6 +81,11 @@ do
         }
         break;
         default:
+        if(opcao != 0)
+        {
+            Console.WriteLine("Oops! Opção digitada invalida, tente novamente.");
+            Console.ReadLine();
+        }
         break;
     }
 }while(opcao != 0);
