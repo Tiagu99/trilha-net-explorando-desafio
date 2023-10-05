@@ -27,7 +27,9 @@ do
                     Console.WriteLine($"Quantidade de hóspedes: {reserva.ObterQuantidadeHospedes()}");
                     Console.WriteLine($"Valor da diaria: {reserva.Suite.ValorDiaria:c}");
                     Console.WriteLine($"Valor Total: {reserva.CalcularValorDiaria():c}");
+                    Console.WriteLine("\n ----------------------------------------- \n");
                 }
+                
             }
             else
             {
