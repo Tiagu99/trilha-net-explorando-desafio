@@ -26,13 +26,35 @@ do
                 Console.WriteLine("Digite o sobrenome: ");
                 string sobrenome = Console.ReadLine();
 
-                Pessoa p1 = new Pessoa(nome, sobrenome);
-                hospedes.Add(p1);
+                Pessoa novaPessoa = new Pessoa(nome, sobrenome);
+                hospedes.Add(novaPessoa);
 
                 Console.WriteLine("Deseja cadastrar outro hóspede para essa reserva?");
                 Console.WriteLine("1 - Sim\n 2- Não");
                 opcaoCadastro = Convert.ToInt32(Console.ReadLine());
             }while(opcaoCadastro !=2 );
+
+            Console.WriteLine("Digite o tipo de suíte da reserva: (ex: Simples, Executivo, Premium, etc...)");
+            string tipoSuite = Console.ReadLine();
+            Console.WriteLine("Digite a capacidade de hóspede dessa suíte: ");
+            int capacidade = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Digite o valor da diaria dessa suíte: ");
+            decimal valorDiaria = Convert.ToDecimal(Console.ReadLine());
+
+            Suite novaSuite = new Suite(tipoSuite, capacidade, valorDiaria);
+
+            Console.WriteLine("Digite quantos dias serão reservados: ");
+            int diasReservados = Convert.ToInt32(Console.ReadLine());
+
+            Reserva novaReserva = new Reserva(diasReservados);
+            novaReserva.CadastrarSuite(novaSuite);
+            novaReserva.CadastrarHospedes(hospedes);
+
+            listaDeReservas.Add(novaReserva);
+
+            Console.WriteLine("Nova reserva cadastrada com sucesso.");
+            Console.WriteLine("Precione 'Enter' para continuar");
+            Console.ReadLine();
         }
         break;
         case 2:{
@@ -64,22 +86,4 @@ do
 }while(opcao != 0);
 
 
-
-
-
-
-
-// Cria os modelos de hóspedes e cadastra na lista de hóspedes
-
-
-// Cria a suíte
-Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
-
-// Cria uma nova reserva, passando a suíte e os hóspedes
-// Reserva reserva = new Reserva(diasReservados: 5);
-// reserva.CadastrarSuite(suite);
-// reserva.CadastrarHospedes(hospedes);
-
-// Exibe a quantidade de hóspedes e o valor da diária
-// Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
-// Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+Console.WriteLine("Programa finalizado");
