@@ -29,11 +29,14 @@ do
                     Console.WriteLine($"Valor Total: {reserva.CalcularValorDiaria():c}");
                     Console.WriteLine("\n ----------------------------------------- \n");
                 }
-                
+                Console.WriteLine("Precione 'Enter' para continuar");
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("Ainda não há reservas criadas");
+                Console.WriteLine("Precione 'Enter' para continuar");
+                Console.ReadLine();
             }
         }
         break;
