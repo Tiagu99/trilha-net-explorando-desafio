@@ -15,7 +15,25 @@ do
     opcao = Convert.ToInt32(Console.ReadLine());
     switch(opcao)
     {
-        case 1:
+        case 1:{
+            int opcaoCadastro = 0;
+            List<Pessoa> hospedes = new List<Pessoa>();
+            do
+            {
+
+                Console.WriteLine("Digite o nome do hóspede para a reserva: ");
+                string nome = Console.ReadLine();
+                Console.WriteLine("Digite o sobrenome: ");
+                string sobrenome = Console.ReadLine();
+
+                Pessoa p1 = new Pessoa(nome, sobrenome);
+                hospedes.Add(p1);
+
+                Console.WriteLine("Deseja cadastrar outro hóspede para essa reserva?");
+                Console.WriteLine("1 - Sim\n 2- Não");
+                opcaoCadastro = Convert.ToInt32(Console.ReadLine());
+            }while(opcaoCadastro !=2 );
+        }
         break;
         case 2:{
             if(listaDeReservas.Any())
@@ -52,13 +70,7 @@ do
 
 
 // Cria os modelos de hóspedes e cadastra na lista de hóspedes
-List<Pessoa> hospedes = new List<Pessoa>();
 
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
-
-hospedes.Add(p1);
-hospedes.Add(p2);
 
 // Cria a suíte
 Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
